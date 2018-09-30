@@ -1,0 +1,18 @@
+DELETE poa-acidentes-transito
+
+PUT poa-acidentes-transito
+{
+  "mappings": {
+    "doc": {
+      "properties": {
+        "localizacao": {
+          "type": "geo_point"
+        },
+        "data_hora": {
+          "type":   "date",
+          "format": "strict_date_hour_minute||yyyy-MM-dd HH:mm||yyyyMMdd HH:mm"
+        }
+      }
+    }
+  }
+}
