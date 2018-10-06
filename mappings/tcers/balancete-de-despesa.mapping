@@ -4,7 +4,7 @@ PUT /tcers-balancete-de-despesa/
 {
   "mappings": {
     "doc": {
-      "dynamic": false,
+      "dynamic": true,
       "properties": {
         "@timestamp": {
           "type": "date"
