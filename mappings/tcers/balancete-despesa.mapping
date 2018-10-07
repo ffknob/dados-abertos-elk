@@ -1,0 +1,27 @@
+DELETE /tcers-balancete-despesa/
+
+PUT /tcers-balancete-despesa/
+{
+  "mappings": {
+    "doc": {
+      "dynamic": true,
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "@version": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "localizacao": {
+          "type": "geo_point"
+        }
+      }
+    }
+  }
+}
