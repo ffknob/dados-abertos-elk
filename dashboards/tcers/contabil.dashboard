@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "50fc68d0-d0b4-11e8-b3f5-d986db915190",
+    "_type": "dashboard",
+    "_source": {
+      "title": "TCE-RS / Contábil",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":33,\"w\":48,\"h\":30,\"i\":\"1\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"38e14c20-d0b4-11e8-b3f5-d986db915190\",\"embeddableConfig\":{}},{\"panelIndex\":\"2\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":33,\"i\":\"2\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"3b578c00-d0a3-11e8-b3f5-d986db915190\",\"embeddableConfig\":{}},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":33,\"i\":\"3\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"4627b290-d0a8-11e8-b3f5-d986db915190\",\"embeddableConfig\":{}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true,\"hidePanelTitles\":false}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  }
+]
