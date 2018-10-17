@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "85bc5880-a550-11e8-8205-6ba4039dc1e9",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Diárias pagas",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":15,\"h\":10,\"i\":\"1\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"fb396e70-a54d-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"panelIndex\":\"2\",\"gridData\":{\"x\":15,\"y\":0,\"w\":33,\"h\":10,\"i\":\"2\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"f1faeac0-a550-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":15,\"i\":\"3\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"7afce180-a550-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"gridData\":{\"w\":24,\"h\":15,\"x\":24,\"y\":10,\"i\":\"4\"},\"version\":\"6.3.2\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"id\":\"d68b7a50-a54d-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  }
+]

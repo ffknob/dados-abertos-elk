@@ -14,6 +14,7 @@
 - http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/[2004-2017].csv
 - http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/[2004-2017].csv
 - http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/[2012-2017].csv
+- http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/[2008-2017].csv
 
 # Elasticsearsh
 
@@ -32,13 +33,16 @@
 
 - tcers-balancete-despesa,tcers-balancete-receita
 - tcers-lai
+- tcers-diarias-pagas
 
 ## Visualizations
 
-- contabil.visualization
-- lai.visualization
+- contabil.visualizations
+- lai.visualizations
+- diarias-pagas.visualizations
 
 ## Dashboards
 
 - contabil.dashboard
 - lai.dashboard
+- diarias-pagas.dashboard
