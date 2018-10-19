@@ -1,6 +1,5 @@
 DELETE /tcers-diarias-pagas/
 
-
 PUT /tcers-diarias-pagas/
 {
   "mappings": {
@@ -24,6 +23,18 @@ PUT /tcers-diarias-pagas/
         },
         "destino.localizacao": {
           "type": "geo_point"
+        },
+        "periodo1.inicio": {
+          "type": "date"
+        },
+        "periodo1.fim": {
+          "type": "date"
+        },
+        "periodo2.inicio": {
+          "type": "date"
+        },
+        "periodo2.fim": {
+          "type": "date"
         }
       }
     }
