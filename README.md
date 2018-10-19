@@ -4,14 +4,14 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
 
 _TL;DR_
 
-1. Baixar os datasets de dados abertos desejados
-1. Instalar o Elasticsearch, Kibana e Logstash
-1. Executar o Elasticsearch ([http://localhost:9200/](http://localhost:9200)) e Kibana ([http://localhost:5601/](http://localhost:5601/))
-1. Executar no Logstash os pipelines para os dicionários
-1. Executar no Logstash os pipelines para os conjuntos de dados abertos desejados
-1. Configurar no Kibana os Index Patterns dos conjuntos de dados desejados
-1. Instalar no Kibana as Visualizations dos conjuntos de dados desejados
-1. Instalar no Kibana os Dashboards dos conjuntos de dados desejados
+1. Baixar os conjuntos de dados abertos desejados
+1. Instalar o _Elasticsearch_, _Kibana_ e _Logstash_
+1. Executar o _Elasticsearch_ ([http://localhost:9200/](http://localhost:9200)) e _Kibana_ ([http://localhost:5601/](http://localhost:5601/))
+1. Executar no _Logstash_ os pipelines para os dicionários
+1. Executar no _Logstash_ os pipelines para os conjuntos de dados abertos desejados
+1. Configurar no _Kibana_ os Index Patterns dos conjuntos de dados desejados
+1. Instalar no _Kibana_ as Visualizations dos conjuntos de dados desejados
+1. Instalar no _Kibana_ os Dashboards dos conjuntos de dados desejados
 
 ## Download dos conjuntos de dados
 
@@ -47,6 +47,10 @@ Os índices que precisam ser mapeados são:
 
 ### Logstash
 
+O _Logstash_ é a solução de ETL da _Elastic_, através da qual é possível consumir dados de diversos tipos de fontes diferentes, assim como transformá-los, enriquecê-los e então enviá-los para, também, diversas tipos de destinos diderentes.
+
+Neste projetos os dados serão consumidos de arquivos locais do tipo _CSV_ e enviados para o _Elasticsearch_.
+
 #### Instalação e execução
 
 1. [Logstash Download](https://www.elastic.co/downloads/logstash)
@@ -66,7 +70,9 @@ Os dicionários que deverão ser gerados, obedecendo a ordem, são:
 - _pipeline/tcers/dict/municipios.conf_
 - _pipeline/tcers/dict/funcoes.conf_
 
-### Kibana 
+### Kibana
+
+O _Kibana_ é o console de acesso e visualização dos dados indexados no _Elasticsearch_. Através dele é possível realizar consultas nos índices, criars visualizações dos dados e agrupar essas visualizações em dashboards.
 
 #### Instalação e execução
 
@@ -83,7 +89,7 @@ Os _Index Patterns_ devem ser configurados no _Kibana_ para definir quais índic
 1. Informe o padrão de índices do conjunto de dados desejado (listados a seguir)
 1. Informe o campo _@timestamp_ para ser utilizado como marcador da data do evento
 
-Os _Indexes Patterns_ que deverão ser definidos são:
+Os _Index Patterns_ que deverão ser definidos são:
 
 - _TCE-RS / Contábil_: tcers-balancete-despesa,tcers-balancete-receita
 - _TCE-RS / LAI_: tcers-lai
@@ -91,6 +97,8 @@ Os _Indexes Patterns_ que deverão ser definidos são:
 - _TCE-RS / Decisões_: tcers-decisoes
 
 #### Visualizations
+
+As visualizações são ...
 
 - contabil.visualizations
 - lai.visualizations
