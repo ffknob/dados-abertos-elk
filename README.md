@@ -111,11 +111,11 @@ _data/tcers/auxiliares/_:
 
 #### Conjuntos de dados
 
-_data/tcers/balancete-despesa/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/)
-_data/tcers/balancete-receita/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/)
-_data/tcers/solicitacoes-informacao/_: [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/)
-_data/tcers/diarias-pagas/_: [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/)
-_data/tcers/decisoes/_: [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/)
+- _data/tcers/balancete-despesa/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/)
+- _data/tcers/balancete-receita/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/)
+- _data/tcers/solicitacoes-informacao/_: [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/)
+- _data/tcers/diarias-pagas/_: [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/)
+- _data/tcers/decisoes/_: [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/)
 
 ### Fonte: #Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre
 
