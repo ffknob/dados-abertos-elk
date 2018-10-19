@@ -3,10 +3,10 @@
     "_id": "85bc5880-a550-11e8-8205-6ba4039dc1e9",
     "_type": "dashboard",
     "_source": {
-      "title": "Diárias pagas",
+      "title": "TCE-RS / Diárias pagas",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":15,\"h\":10,\"i\":\"1\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"fb396e70-a54d-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"panelIndex\":\"2\",\"gridData\":{\"x\":15,\"y\":0,\"w\":33,\"h\":10,\"i\":\"2\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"f1faeac0-a550-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":15,\"i\":\"3\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"7afce180-a550-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}},{\"gridData\":{\"w\":24,\"h\":15,\"x\":24,\"y\":10,\"i\":\"4\"},\"version\":\"6.3.2\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"id\":\"d68b7a50-a54d-11e8-8205-6ba4039dc1e9\",\"embeddableConfig\":{}}]",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":15,\"h\":10,\"i\":\"1\"},\"embeddableConfig\":{},\"id\":\"fb396e70-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":15,\"y\":0,\"w\":33,\"h\":10,\"i\":\"2\"},\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"id\":\"f1faeac0-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":26,\"i\":\"3\"},\"embeddableConfig\":{},\"id\":\"7afce180-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":24,\"y\":10,\"w\":24,\"h\":26,\"i\":\"4\"},\"embeddableConfig\":{\"mapCenter\":[-30.225848323247707,-52.77832031250001],\"mapZoom\":7},\"id\":\"d68b7a50-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"}]",
       "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
       "version": 1,
       "timeRestore": false,
