@@ -26,7 +26,8 @@ O _Elasticsearch_ é o componente central da stack _ELK_ e é responsável por i
 
 #### Instalação e execução
 
-
+1. [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+1. `${ELASTICSEARCH_BASE}/bin/elasticsearch`
 
 #### Mappings
 
@@ -48,9 +49,8 @@ Os índices que precisam ser mapeados são:
 
 #### Instalação e execução
 
-Executando:
-
-`$ ${LOGSTASH_BASE_DIR}/bin/logstash -f arquivo_configuracao_pipeline.conf`
+1. [Logstash Download](https://www.elastic.co/downloads/logstash)
+1. `${LOGSTASH_BASE_DIR}/bin/logstash -f arquivo_configuracao_pipeline.conf`
 
 Como o _Logstash_ mantém o canal de entrada aberto esperando receber mais eventos, ele não encerra a execução mesmo após consumir todo o arquivo (ele espera que mais eventos sejam adicionados ao arquivo). Portanto, ele precisará ser interrompido manualmente. Para isso, aguarde até que ele não esteja mais gerando a saída _dots_ (ele irá gerar um "." para cada evento consumido) e utilize CTRL+C para interrompê-lo.
 
@@ -70,12 +70,25 @@ Os dicionários que deverão ser gerados, obedecendo a ordem, são:
 
 #### Instalação e execução
 
+1. [Download Kibana](https://www.elastic.co/downloads/kibana)
+1. `${KIBANA_BASE}/bin/kibana`
+
 #### Index Patterns
 
-- tcers-balancete-despesa,tcers-balancete-receita
-- tcers-lai
-- tcers-diarias-pagas
-- tcers-decisoes
+Os _Index Patterns_ devem ser configurados no _Kibana_ para definir quais índices comporão uma fonte de dados para a construção de visualizações e dashboards. Para configurar um _Index Pattern_ siga os seguintes passos:
+
+1. Acesse o menu [Management do Kibana](http://localhost:5601/app/kibana#/management?_g=())
+1. Vá em _Indexes Patterns_
+1. _Create Index Pattern_
+1. Informe o padrão de índices do conjunto de dados desejado (listados a seguir)
+1. Informe o campo _@timestamp_ para ser utilizado como marcador da data do evento
+
+Os _Indexes Patterns_ que deverão ser definidos são:
+
+- _TCE-RS / Contábil_: tcers-balancete-despesa,tcers-balancete-receita
+- _TCE-RS / LAI_: tcers-lai
+- _TCE-RS / Diárias pagas_: tcers-diarias-pagas
+- _TCE-RS / Decisões_: tcers-decisoes
 
 #### Visualizations
 
