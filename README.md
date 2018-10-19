@@ -34,7 +34,7 @@ O _Elasticsearch_ é capaz de identificar dinamicamente os tipos de dados enviad
 
 O mapeamento deve ser realizado antes da execução do pipeline do _Logstash_, pois uma ves criado o índice, o mapeamento do tipo de dado do campo não poderá ser alterado. Para realizar o mapeamento siga os seguintes passos:
 
-1. Acesse o [http://localhost:5601/app/kibana#/dev_tools/console?_g=()](DevTools no Console do Kibana)
+1. Acesse o [DevTools no Console do Kibana](http://localhost:5601/app/kibana#/dev_tools/console?_g=())
 1. Copie o conteúdo do arquivo de mapeamento do conjunto de dados desejado e cole no console
 1. Os arquivos são formados por dois comandos: o primeiro irá excluir o índice (caso exista) e o segundo ira criá-lo, já com os mapeamentos de campos necessários
 
