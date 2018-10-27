@@ -115,7 +115,7 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 - [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
 - [#Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre](http://www.datapoa.com.br/)
 
-| Fonte | Conjunto de dados | Download | Path |
+| Fonte | Conjunto de dados | Path | Download |
 | --- | --- | --- | --- |
 | TCE-RS | Dados auxiliares: Funções | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv) |
 | TCE-RS | Dados auxiliares: Sub-funções  | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv) |
