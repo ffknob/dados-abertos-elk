@@ -143,3 +143,14 @@ _data/tcers/auxiliares/_:
 #### Conjuntos de dados
 
 ...
+
+---
+
+| Fonte | Conjunto de dados | Download | Path |
+| --- | --- | --- | --- |
+| TCE-RS | Balancete de despesa | [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/) | _data/tcers/balancete-despesa/_ |
+| TCE-RS | Balancete de receita | [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/) | _data/tcers/balancete-receita/_ |
+| TCE-RS | Solicitações de informação | [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/) | _data/tcers/solicitacoes-informacao/_ |
+| TCE-RS | Diárias pagas | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) | _data/tcers/diarias-pagas/_ |
+| TCE-RS | Decisões | _data/tcers/decisoes/_ | [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/) |
+
