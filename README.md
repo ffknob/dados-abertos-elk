@@ -82,11 +82,11 @@ Os _Index Patterns_ devem ser configurados no _Kibana_ para definir quais índic
 
 #### Visualizations
 
-As visualizações são ...
+As Visualizations possibilitam a visualização dos dados indexados através de componentes visuais como histogramas, gráficos de diversos tipos, mapas, _heatmaps_, nuvens de tags, _gauges_ e outros.
 
 #### Dashboards
 
-Dashboards são ...
+Dashboards reunem Visualizations possibilitando a criação de painéis de informação.
 
 ---
 
