@@ -19,7 +19,6 @@ O primeiro passo é realizar o download dos arquivos de dados. Eles poderão ser
 
 ## ELK
 
-
 ### Elasticsearch
 
 O _Elasticsearch_ é o componente central da stack _ELK_ e é responsável por indexar os dados e fornecer uma API REST para a realização de consultas. 
@@ -38,12 +37,6 @@ O mapeamento deve ser realizado antes da execução do pipeline do _Logstash_, p
 1. Acesse o [DevTools no Console do Kibana](http://localhost:5601/app/kibana#/dev_tools/console?_g=())
 1. Copie o conteúdo do arquivo de mapeamento do conjunto de dados desejado e cole no console
 1. Os arquivos são formados por dois comandos: o primeiro irá excluir o índice (caso exista) e o segundo ira criá-lo, já com os mapeamentos de campos necessários
-
-Os índices que precisam ser mapeados são:
- 
-- _mappings/tcers/balancete-despesa.mapping_
-- _mappings/tcers/balancete-receita.mapping_
-- _mappings/tcers/diarias-pagas.mapping_
 
 ### Logstash
 
@@ -89,36 +82,24 @@ Os _Index Patterns_ devem ser configurados no _Kibana_ para definir quais índic
 1. Informe o padrão de índices do conjunto de dados desejado (listados a seguir)
 1. Informe o campo _@timestamp_ para ser utilizado como marcador da data do evento
 
-Os _Index Patterns_ que deverão ser definidos são:
-
-- _TCE-RS / Contábil_: tcers-balancete-despesa,tcers-balancete-receita
-- _TCE-RS / LAI_: tcers-lai
-- _TCE-RS / Diárias pagas_: tcers-diarias-pagas
-- _TCE-RS / Decisões_: tcers-decisoes
-
 #### Visualizations
 
 As visualizações são ...
 
-- contabil.visualizations
-- lai.visualizations
-- diarias-pagas.visualizations
-- decisoes.visualizations
-
 #### Dashboards
 
-- contabil.dashboard
-- lai.dashboard
-- diarias-pagas.dashboard
-- decisoes.dashboard
+Dashboards são ...
 
 ---
 
-### xxx
+### Painéis
 
-| Nome | Mappings | Índices | Index Patterns | Visualizations | Dashboards |
+| Painel | Mappings | Índices | Index Patterns | Visualizations | Dashboards |
 | --- | --- | --- | --- | --- | --- |
-| 
+| TCE-RS / Contábil | _mappings/tcers/balancete-despesa.mapping_, _mappings/tcers/balancete-receita.mapping_ | tcers-balancete-despesa, tcers-balancete-receita | tcers-balancete-despesa,tcers-balancete-receita | contabil.visualizations | contabil.dashboard |
+| TCE-RS / LAI |  | tcers-lai | tcers-lai | lai.visualizations | lai.dashboard |
+| TCE-RS / Diárias pagas | _mappings/tcers/diarias-pagas.mapping_ | tcers-diarias-pagas | tcers-diarias-pagas | diarias-pagas.visualizations | diarias-pagas.dashboard |
+| TCE-RS / Decisões |  | tcers-decisoes | tcers-decisoes | decisoes.visualizations | decisoes.dashboard |
 
 
 ### Fontes de dados abertos
