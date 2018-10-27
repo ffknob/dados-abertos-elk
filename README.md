@@ -118,39 +118,19 @@ As visualizações são ...
 
 - [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
 
-#### Auxiliares
-
-_data/tcers/auxiliares/_:
-
-- [http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv](http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/elementos_de_despesa.csv](http://dados.tce.rs.gov.br/dados/auxiliar/elementos_de_despesa.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/modalidade_de_aplicacao.csv](http://dados.tce.rs.gov.br/dados/auxiliar/modalidade_de_aplicacao.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/orgaos_auditados_rs.csv](http://dados.tce.rs.gov.br/dados/auxiliar/orgaos_auditados_rs.csv)
-- [http://dados.tce.rs.gov.br/dados/auxiliar/municipios.csv](http://dados.tce.rs.gov.br/dados/auxiliar/municipios.csv)
-
-#### Conjuntos de dados
-
-- _data/tcers/balancete-despesa/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/)
-- _data/tcers/balancete-receita/_: [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/)
-- _data/tcers/solicitacoes-informacao/_: [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/)
-- _data/tcers/diarias-pagas/_: [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/)
-- _data/tcers/decisoes/_: [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/)
-
 ### Fonte: #Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre
-
-#### Conjuntos de dados
-
-...
-
----
 
 | Fonte | Conjunto de dados | Download | Path |
 | --- | --- | --- | --- |
-| TCE-RS | Balancete de despesa | [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/) | _data/tcers/balancete-despesa/_ |
-| TCE-RS | Balancete de receita | [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/) | _data/tcers/balancete-receita/_ |
-| TCE-RS | Solicitações de informação | [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/) | _data/tcers/solicitacoes-informacao/_ |
-| TCE-RS | Diárias pagas | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) | _data/tcers/diarias-pagas/_ |
+| TCE-RS | Dados auxiliares: Funções | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv) |
+| TCE-RS | Dados auxiliares: Sub-funções  | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv) |
+| TCE-RS | Dados auxiliares: Tipos de unidades | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv](http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv) |
+| TCE-RS | Dados auxiliares: Elementos de despesa | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/elementos_de_despesa.csv](http://dados.tce.rs.gov.br/dados/auxiliar/elementos_de_despesa.csv) |
+| TCE-RS | Dados auxiliares: Modalidades de aplicação | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/modalidade_de_aplicacao.csv](http://dados.tce.rs.gov.br/dados/auxiliar/modalidade_de_aplicacao.csv) |
+| TCE-RS | Dados auxiliares: Órgãos auditados | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/orgaos_auditados_rs.csv](http://dados.tce.rs.gov.br/dados/auxiliar/orgaos_auditados_rs.csv) |
+| TCE-RS | Dados auxiliares: Municípios | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/municipios.csv](http://dados.tce.rs.gov.br/dados/auxiliar/municipios.csv) |
+| TCE-RS | Balancete de despesa | _data/tcers/balancete-despesa/_ | [http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/](http://dados.tce.rs.gov.br/dados/municipal/balancete-despesa/) |
+| TCE-RS | Balancete de receita | _data/tcers/balancete-receita/_ | [http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/](http://dados.tce.rs.gov.br/dados/municipal/balancete-receita/) |
+| TCE-RS | Solicitações de informação | _data/tcers/solicitacoes-informacao/_ | [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/) |
+| TCE-RS | Diárias pagas | _data/tcers/diarias-pagas/_ | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) |
 | TCE-RS | Decisões | _data/tcers/decisoes/_ | [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/) |
-
