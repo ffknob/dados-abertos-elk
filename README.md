@@ -1,4 +1,4 @@
-# Dados Abertos com ELK
+# Dados Abertos com Elastic Stack (ELK)
 
 Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados abertos, fazendo uso da stack _ELK_ (_Elasticsearch + Logstash + Kibana_), que é uma solução baseada em software livre que permite facilmente consumir fontes de dados, manipular/transformar/enriquecer esses dados, indexá-los e, por fim, visualizá-los em dashboards. 
 
@@ -7,17 +7,27 @@ _TL;DR_
 1. Baixar os conjuntos de dados abertos desejados
 1. Instalar o _Elasticsearch_, _Kibana_ e _Logstash_
 1. Executar o _Elasticsearch_ ([http://localhost:9200/](http://localhost:9200)) e _Kibana_ ([http://localhost:5601/](http://localhost:5601/))
-1. Executar no _Logstash_ os pipelines para os dicionários
+1. _Opcional_: Executar no _Logstash_ os pipelines para os dicionários
 1. Executar no _Logstash_ os pipelines para os conjuntos de dados abertos desejados
 1. Configurar no _Kibana_ os Index Patterns dos conjuntos de dados desejados
 1. Instalar no _Kibana_ as Visualizations dos conjuntos de dados desejados
 1. Instalar no _Kibana_ os Dashboards dos conjuntos de dados desejados
 
-## Download dos conjuntos de dados
+## Conjuntos de dados
 
-O primeiro passo é realizar o download dos arquivos de dados. Eles poderão ser obtidos nos portais de dados abertos dos órgãos. Os arquivos deverão ser salvos nas respectivas pastas, conforme indicado para cada fonte de dados. 
+O primeiro passo é realizar o download dos conjuntos de dados. Eles poderão ser obtidos nos portais de dados abertos dos órgãos. Os arquivos deverão ser salvos nas respectivas pastas, conforme indicado na tabela _Fontes de dados abertos_. 
 
-## ELK
+## Dicionários 
+
+Os dicionários são utilizados para enriquecer os conjuntos de dados. Cada dicionário é indexado por uma chave simples, que será utilizada por pipelines do _Logstash_ para encontrar o registro que enriquecerá o evento do conjunto de dados.
+
+Os dicionários são arquivos _Yaml_ gerados também com o uso do _Logstash_. Para gerar os dicionários basta executar o _Logstash_ informando o arquivo de configuração do pipeline de cada dicionário.
+
+Os dicionários que serão utilizados para enriquecer os conjuntos de dados poderão ser gerados, obedecendo a ordem, de acordo com a tabela _Dicionários_. No entanto, uma versão gerada desses dicionários já fazem parte do projeto e podem ser encontradas na pasta _dict/_
+
+---
+
+## Elastic Stack (ELK)
 
 ### Elasticsearch
 
@@ -51,18 +61,6 @@ Neste projetos os dados serão consumidos de arquivos locais do tipo _CSV_ e env
 
 Como o _Logstash_ mantém o canal de entrada aberto esperando receber mais eventos, ele não encerra a execução mesmo após consumir todo o arquivo (ele espera que mais eventos sejam adicionados ao arquivo). Portanto, ele precisará ser interrompido manualmente. Para isso, aguarde até que ele não esteja mais gerando a saída _dots_ (ele irá gerar um "." para cada evento consumido) e utilize CTRL+C para interrompê-lo.
 
-#### Dicionários 
-
-Os dicionários são utilizados para enriquecer os conjuntos de dados. Cada dicionário é indexado por uma chave simples, que será utilizada por pipelines do _Logstash_ para encontrar o registro que enriquecerá o evento do conjunto de dados.
-
-Os dicionários são arquivos _Yaml_ gerados também com o uso do _Logstash_. Para gerar os dicionários basta executar o _Logstash_ informando o arquivo de configuração do pipeline de cada dicionário.
-
-Os dicionários que deverão ser gerados, obedecendo a ordem, são:
-
-- _auxiliares/dict/municipios.conf_
-- _pipeline/tcers/dict/municipios.conf_
-- _pipeline/tcers/dict/funcoes.conf_
-
 ### Kibana
 
 O _Kibana_ é o console de acesso e visualização dos dados indexados no _Elasticsearch_. Através dele é possível realizar consultas nos índices, criars visualizações dos dados e agrupar essas visualizações em dashboards.
@@ -91,6 +89,16 @@ As visualizações são ...
 Dashboards são ...
 
 ---
+
+### Dicionários
+
+| Ordem | Nome | Pipeline | Dicionário gerado|
+| --- | --- | --- | --- | --- |
+| 1 | Municípios | _pipeline/auxiliares/dict/municipios.conf_ | dict/auxiliares/municipios.yml | 
+| 2 | TCE-RS: Municípios | _pipeline/tcers/dict/municipios.conf_ | dict/tcers/municipios.yml |
+| 3 | TCE-RS: Funções contábeis | _pipeline/tcers/dict/funcoes.conf_ | dict/tcers/funcoes.yml |
+| 4 | TCE-RS: Subfunções contábeis | _pipeline/tcers/dict/subfuncoes.conf_ | dict/tcers/subfuncoes.yml |
+| 5 | TCE-RS: Órgãos auditados | _pipeline/tcers/dict/orgaos_auditados.conf_ | dict/tcers/orgaos-auditados.yml |
 
 ### Painéis
 
