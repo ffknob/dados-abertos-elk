@@ -23,7 +23,7 @@ Os dicionários são utilizados para enriquecer os conjuntos de dados. Cada dici
 
 Os dicionários são arquivos _Yaml_ gerados também com o uso do _Logstash_. Para gerar os dicionários basta executar o _Logstash_ informando o arquivo de configuração do pipeline de cada dicionário.
 
-Os dicionários que serão utilizados para enriquecer os conjuntos de dados poderão ser gerados, obedecendo a ordem, de acordo com a tabela _Dicionários_. No entanto, uma versão gerada desses dicionários já fazem parte do projeto e podem ser encontradas na pasta _dict/_
+Os dicionários que serão utilizados para enriquecer os conjuntos de dados poderão ser gerados, obedecendo a ordem, de acordo com a tabela _Dicionários_. No entanto, uma versão gerada desses dicionários já fazem parte do projeto e podem ser encontradas na pasta _dict/_.
 
 ---
 
@@ -93,12 +93,12 @@ Dashboards são ...
 ### Dicionários
 
 | Ordem | Nome | Pipeline | Dicionário gerado|
-| --- | --- | --- | --- | --- |
-| 1 | Municípios | _pipeline/auxiliares/dict/municipios.conf_ | dict/auxiliares/municipios.yml | 
-| 2 | TCE-RS: Municípios | _pipeline/tcers/dict/municipios.conf_ | dict/tcers/municipios.yml |
-| 3 | TCE-RS: Funções contábeis | _pipeline/tcers/dict/funcoes.conf_ | dict/tcers/funcoes.yml |
-| 4 | TCE-RS: Subfunções contábeis | _pipeline/tcers/dict/subfuncoes.conf_ | dict/tcers/subfuncoes.yml |
-| 5 | TCE-RS: Órgãos auditados | _pipeline/tcers/dict/orgaos_auditados.conf_ | dict/tcers/orgaos-auditados.yml |
+| --- | --- | --- | --- |
+| 1 | Municípios | _pipeline/auxiliares/dict/municipios.conf_ | _dict/auxiliares/municipios.yml_ | 
+| 2 | TCE-RS: Municípios | _pipeline/tcers/dict/municipios.conf_ | _dict/tcers/municipios.yml_ |
+| 3 | TCE-RS: Funções contábeis | _pipeline/tcers/dict/funcoes.conf_ | _dict/tcers/funcoes.yml_ |
+| 4 | TCE-RS: Subfunções contábeis | _pipeline/tcers/dict/subfuncoes.conf_ | _dict/tcers/subfuncoes.yml_ |
+| 5 | TCE-RS: Órgãos auditados | _pipeline/tcers/dict/orgaos_auditados.conf_ | _dict/tcers/orgaos-auditados.yml_ |
 
 ### Painéis
 
