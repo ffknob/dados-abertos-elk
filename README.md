@@ -56,7 +56,7 @@ Neste projetos os dados serão consumidos de arquivos locais do tipo _CSV_ e env
 
 #### Instalação e execução
 
-1. [Logstash Download](https://www.elastic.co/downloads/logstash)
+1. [Download Logstash](https://www.elastic.co/downloads/logstash)
 1. `${LOGSTASH_BASE_DIR}/bin/logstash -f arquivo_configuracao_pipeline.conf`
 
 Como o _Logstash_ mantém o canal de entrada aberto esperando receber mais eventos, ele não encerra a execução mesmo após consumir todo o arquivo (ele espera que mais eventos sejam adicionados ao arquivo). Portanto, ele precisará ser interrompido manualmente. Para isso, aguarde até que ele não esteja mais gerando a saída _dots_ (ele irá gerar um "." para cada evento consumido) e utilize CTRL+C para interrompê-lo.
@@ -112,9 +112,6 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 
 ### Fontes de dados abertos
 
-- [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
-- [#Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre](http://www.datapoa.com.br/)
-
 | Fonte | Conjunto de dados | Path | Download |
 | --- | --- | --- | --- |
 | TCE-RS | Dados auxiliares: Funções | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv) |
@@ -132,4 +129,14 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 
 # Links úteis
 
-- [https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns](Grok patterns)
+## Fontes de dados abertos
+
+- [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
+- [Portal de Dados Abertos do Governo do Estado do RS](https://dados.rs.gov.br)
+- [#Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre](http://www.datapoa.com.br/)
+ 
+## Elastic Stack
+
+- Grupo no Telegram: Elastic Fantastics Brasil
+- [Elastic Forums](https://discuss.elastic.com)
+- [Grok patterns](https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns)
