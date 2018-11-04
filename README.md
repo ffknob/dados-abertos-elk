@@ -129,3 +129,7 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 | TCE-RS | Solicitações de informação | _data/tcers/solicitacoes-informacao/_ | [http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/](http://dados.tce.rs.gov.br/dados/lai/solicitacoes-de-informacao/) |
 | TCE-RS | Diárias pagas | _data/tcers/diarias-pagas/_ | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) |
 | TCE-RS | Decisões | _data/tcers/decisoes/_ | [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/) |
+
+# Links úteis
+
+- [https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns](Grok patterns)
