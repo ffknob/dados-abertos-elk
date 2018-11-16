@@ -1,6 +1,3 @@
-DELETE /tcers-balancete-despesa/
-
-PUT /tcers-balancete-despesa/
 {
   "mappings": {
     "doc": {

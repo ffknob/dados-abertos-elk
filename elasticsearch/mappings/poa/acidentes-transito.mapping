@@ -1,6 +1,3 @@
-DELETE poa-acidentes-transito
-
-PUT poa-acidentes-transito
 {
   "mappings": {
     "doc": {

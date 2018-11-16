@@ -1,6 +1,3 @@
-DELETE /tcers-diarias-pagas/
-
-PUT /tcers-diarias-pagas/
 {
   "mappings": {
     "doc": {

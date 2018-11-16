@@ -1,6 +1,3 @@
-DELETE /tcers-balancete-receita/
-
-PUT /tcers-balancete-receita/
 {
   "mappings": {
     "doc": {
