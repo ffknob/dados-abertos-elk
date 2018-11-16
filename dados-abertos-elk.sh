@@ -74,7 +74,7 @@ run_logstash_pipelines() {
 			
 			printf "Executando pipeline %-${PADDING}s" "${PIPELINE_NAME}..."
 
-			echo "${LOGSTASH} -f ${f} 2&>1 > /dev/null"
+			echo "${LOGSTASH} -f ${f} 2>&1 > /dev/null"
 			${LOGSTASH} -f ${f} 2>&1 > /dev/null
 	
 			if [ $? -ne 0 ]
