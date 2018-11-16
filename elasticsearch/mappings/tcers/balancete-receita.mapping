@@ -1,22 +1,291 @@
 {
-  "mappings": {
-    "doc": {
-      "dynamic": true,
-      "properties": {
-        "@timestamp": {
-          "type": "date"
+"mappings" : {
+    "doc" : {
+      "dynamic" : "true",
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
         },
-        "@version": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
+        "@version" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
             }
           }
         },
-        "localizacao": {
-          "type": "geo_point"
+        "ano" : {
+          "type" : "long"
+        },
+        "bimestre" : {
+          "type" : "long"
+        },
+        "caracteristica_peculiar" : {
+          "properties" : {
+            "cd_caracteristica_peculiar" : {
+              "type" : "long"
+            },
+            "ds_caracteristica_peculiar" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "cd_orgao_orcamentario" : {
+          "type" : "long"
+        },
+        "cd_recebimento" : {
+          "type" : "long"
+        },
+        "conta" : {
+          "properties" : {
+            "cd_conta" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "ds_conta" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "localizacao" : {
+          "type" : "geo_point"
+        },
+        "municipio" : {
+          "properties" : {
+            "cd_municipio" : {
+              "type" : "long"
+            },
+            "cd_municipio_ibge" : {
+              "type" : "long"
+            },
+            "cd_sedes_tce" : {
+              "type" : "long"
+            },
+            "latitude" : {
+              "type" : "float"
+            },
+            "localizacao" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "longitude" : {
+              "type" : "float"
+            },
+            "nome_municipio" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "nome_sede_tce" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "sigla_sede_tce" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "uf" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "nivel" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "nr_nivel" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "orgao_auditado" : {
+          "properties" : {
+            "cd_orgao" : {
+              "type" : "long"
+            },
+            "cnpj" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "contabilidade" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "esfera" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "home_page" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "natureza_juridica" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "nome_orgao" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "setor_governamental" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "orgao_orcamentario" : {
+          "properties" : {
+            "cd_orgao_orcamentario" : {
+              "type" : "long"
+            },
+            "nome_orgao_orcamentario" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "recurso" : {
+          "properties" : {
+            "cd_recurso" : {
+              "type" : "long"
+            },
+            "nm_recurso" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "unidade_orcamentaria" : {
+          "properties" : {
+            "cd_unidade_orcamentaria" : {
+              "type" : "long"
+            },
+            "nome_unidade" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "tp_unidade" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "valores" : {
+          "properties" : {
+            "vl_arrecadado" : {
+              "type" : "float"
+            },
+            "vl_orcado" : {
+              "type" : "float"
+            }
+          }
         }
       }
     }

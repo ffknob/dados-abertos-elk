@@ -1,7 +1,6 @@
 {
   "mappings" : {
     "doc" : {
-      "dynamic" : "true",
       "properties" : {
         "@timestamp" : {
           "type" : "date"
@@ -15,13 +14,7 @@
             }
           }
         },
-        "ano" : {
-          "type" : "long"
-        },
-        "bimestre" : {
-          "type" : "long"
-        },
-        "cd_elemento" : {
+        "decisao" : {
           "type" : "text",
           "fields" : {
             "keyword" : {
@@ -30,30 +23,15 @@
             }
           }
         },
-        "cd_orgao_orcamentario" : {
-          "type" : "long"
+        "extra_pauta" : {
+          "type" : "boolean"
         },
-        "cd_recebimento" : {
-          "type" : "long"
-        },
-        "funcao" : {
+        "gabinete" : {
           "properties" : {
-            "cd_funcao" : {
+            "cod_gabinete" : {
               "type" : "long"
             },
-            "cd_subfuncao" : {
-              "type" : "long"
-            },
-            "ds_funcao" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "ds_subfuncao" : {
+            "nome" : {
               "type" : "text",
               "fields" : {
                 "keyword" : {
@@ -64,86 +42,47 @@
             }
           }
         },
-        "localizacao" : {
-          "type" : "geo_point"
+        "link_video_sessao" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
         },
-        "municipio" : {
+        "magistrado" : {
           "properties" : {
-            "cd_municipio" : {
+            "cod_magistrado" : {
               "type" : "long"
             },
+            "nome" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "orgao" : {
+          "properties" : {
             "cd_municipio_ibge" : {
               "type" : "long"
             },
-            "cd_sedes_tce" : {
+            "cd_municipio_tcers" : {
               "type" : "long"
             },
-            "latitude" : {
-              "type" : "float"
-            },
-            "localizacao" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "longitude" : {
-              "type" : "float"
-            },
-            "nome_municipio" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "nome_sede_tce" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "sigla_sede_tce" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "uf" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            }
-          }
-        },
-        "nome_orgao_orcamentario" : {
-          "type" : "text",
-          "fields" : {
-            "keyword" : {
-              "type" : "keyword",
-              "ignore_above" : 256
-            }
-          }
-        },
-        "orgao_auditado" : {
-          "properties" : {
             "cd_orgao" : {
-              "type" : "long"
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
             },
             "cnpj" : {
               "type" : "text",
@@ -190,6 +129,15 @@
                 }
               }
             },
+            "nome_municipio" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
             "nome_orgao" : {
               "type" : "text",
               "fields" : {
@@ -210,12 +158,12 @@
             }
           }
         },
-        "programa" : {
+        "orgao_julgador" : {
           "properties" : {
-            "cd_programa" : {
+            "cod_orgao_julgador" : {
               "type" : "long"
             },
-            "ds_programa" : {
+            "nome" : {
               "type" : "text",
               "fields" : {
                 "keyword" : {
@@ -226,12 +174,21 @@
             }
           }
         },
-        "projeto" : {
+        "processo" : {
           "properties" : {
-            "cd_projeto" : {
+            "cod_tipo_processo" : {
               "type" : "long"
             },
-            "nm_projeto" : {
+            "numero" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "tipo" : {
               "type" : "text",
               "fields" : {
                 "keyword" : {
@@ -242,12 +199,21 @@
             }
           }
         },
-        "recurso" : {
+        "retirado_pauta" : {
+          "type" : "boolean"
+        },
+        "sessao" : {
           "properties" : {
-            "cd_recurso" : {
+            "ano" : {
               "type" : "long"
             },
-            "nm_recurso" : {
+            "data" : {
+              "type" : "date"
+            },
+            "numero" : {
+              "type" : "long"
+            },
+            "tipo" : {
               "type" : "text",
               "fields" : {
                 "keyword" : {
@@ -258,76 +224,8 @@
             }
           }
         },
-        "unidade_orcamentaria" : {
-          "properties" : {
-            "cd_unidade_orcamentaria" : {
-              "type" : "long"
-            },
-            "nome_unidade" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            },
-            "tp_unidade" : {
-              "type" : "text",
-              "fields" : {
-                "keyword" : {
-                  "type" : "keyword",
-                  "ignore_above" : 256
-                }
-              }
-            }
-          }
-        },
-        "valores" : {
-          "properties" : {
-            "vl_atualizacao_monetaria" : {
-              "type" : "float"
-            },
-            "vl_creditos_especiais" : {
-              "type" : "float"
-            },
-            "vl_creditos_extraordinarios" : {
-              "type" : "float"
-            },
-            "vl_creditos_suplementares" : {
-              "type" : "float"
-            },
-            "vl_dotacao_inicial" : {
-              "type" : "float"
-            },
-            "vl_empenhado" : {
-              "type" : "float"
-            },
-            "vl_limitado" : {
-              "type" : "float"
-            },
-            "vl_liquidado" : {
-              "type" : "float"
-            },
-            "vl_pago" : {
-              "type" : "float"
-            },
-            "vl_previsao_execucao" : {
-              "type" : "float"
-            },
-            "vl_recomposicao" : {
-              "type" : "float"
-            },
-            "vl_reducao_dotacao" : {
-              "type" : "float"
-            },
-            "vl_reducao_recurso" : {
-              "type" : "float"
-            },
-            "vl_suplementacao_recurso" : {
-              "type" : "float"
-            }
-          }
+        "solicitacao_vista" : {
+          "type" : "boolean"
         }
       }
     }

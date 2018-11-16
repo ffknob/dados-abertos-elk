@@ -1,13 +1,304 @@
 {
-  "mappings": {
-    "doc": {
-      "properties": {
-        "localizacao": {
-          "type": "geo_point"
+"mappings" : {
+    "doc" : {
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
         },
-        "data_hora": {
-          "type":   "date",
-          "format": "strict_date_hour_minute||yyyy-MM-dd HH:mm||yyyyMMdd HH:mm"
+        "@version" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "ano" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "automovel" : {
+          "type" : "long"
+        },
+        "bicicleta" : {
+          "type" : "long"
+        },
+        "boletim" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "caminhao" : {
+          "type" : "long"
+        },
+        "carroca" : {
+          "type" : "long"
+        },
+        "consorcio" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "contagem_acidentes" : {
+          "type" : "long"
+        },
+        "contagem_vitmas" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "corredor_onibus" : {
+          "type" : "boolean"
+        },
+        "data_hora" : {
+          "type" : "date",
+          "format" : "strict_date_hour_minute||yyyy-MM-dd HH:mm||yyyyMMdd HH:mm"
+        },
+        "dia" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "dia_semana" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "faixa_horaria" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "fatais" : {
+          "type" : "long"
+        },
+        "feridos" : {
+          "type" : "long"
+        },
+        "feridos_grave" : {
+          "type" : "long"
+        },
+        "fonte" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "host" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "id" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "latitude" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "local" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "local_via" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "localizacao" : {
+          "type" : "geo_point"
+        },
+        "logradouro1" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "logradouro2" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "longitude" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "lotacao" : {
+          "type" : "long"
+        },
+        "mes" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "mortes" : {
+          "type" : "long"
+        },
+        "mortes_posteriores" : {
+          "type" : "long"
+        },
+        "moto" : {
+          "type" : "long"
+        },
+        "noite_dia" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "onibus_metropolitano" : {
+          "type" : "long"
+        },
+        "onibus_outro" : {
+          "type" : "long"
+        },
+        "onibus_urbano" : {
+          "type" : "long"
+        },
+        "outro" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "predial1" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "queda_arroio" : {
+          "type" : "boolean"
+        },
+        "regiao" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "tags" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "taxi" : {
+          "type" : "long"
+        },
+        "tempo" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "tipo_acidente" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "ups" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
         }
       }
     }

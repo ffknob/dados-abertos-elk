@@ -1,37 +1,222 @@
 {
-  "mappings": {
-    "doc": {
-      "dynamic": true,
-      "properties": {
-        "@timestamp": {
-          "type": "date"
-        },
-        "@version": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
+  "mappings" : {
+      "doc" : {
+        "dynamic" : "true",
+        "properties" : {
+          "@timestamp" : {
+            "type" : "date"
+          },
+          "@version" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
             }
+          },
+          "ano" : {
+            "type" : "long"
+          },
+          "cargo" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "cod_municipio_destino" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "destino" : {
+            "properties" : {
+              "cd_municipio" : {
+                "type" : "long"
+              },
+              "cd_municipio_ibge" : {
+                "type" : "long"
+              },
+              "cd_sedes_tce" : {
+                "type" : "long"
+              },
+              "latitude" : {
+                "type" : "float"
+              },
+              "localizacao" : {
+                "type" : "geo_point"
+              },
+              "longitude" : {
+                "type" : "float"
+              },
+              "nome_municipio" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "nome_sede_tce" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "sigla_sede_tce" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "uf" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              }
+            }
+          },
+          "matricula" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "motivo" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "nome" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "origem" : {
+            "properties" : {
+              "cd_municipio" : {
+                "type" : "long"
+              },
+              "cd_municipio_ibge" : {
+                "type" : "long"
+              },
+              "cd_sedes_tce" : {
+                "type" : "long"
+              },
+              "latitude" : {
+                "type" : "float"
+              },
+              "localizacao" : {
+                "type" : "geo_point"
+              },
+              "longitude" : {
+                "type" : "float"
+              },
+              "nome_municipio" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "nome_sede_tce" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "sigla_sede_tce" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "uf" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              }
+            }
+          },
+          "periodo1" : {
+            "properties" : {
+              "fim" : {
+                "type" : "date"
+              },
+              "inicio" : {
+                "type" : "date"
+              },
+              "quantidade" : {
+                "type" : "float"
+              }
+            }
+          },
+          "periodo2" : {
+            "properties" : {
+              "fim" : {
+                "type" : "date"
+              },
+              "inicio" : {
+                "type" : "date"
+              },
+              "quantidade" : {
+                "type" : "float"
+              }
+            }
+          },
+          "setor" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "valor" : {
+            "type" : "float"
           }
-        },
-        "origem.localizacao": {
-          "type": "geo_point"
-        },
-        "destino.localizacao": {
-          "type": "geo_point"
-        },
-        "periodo1.inicio": {
-          "type": "date"
-        },
-        "periodo1.fim": {
-          "type": "date"
-        },
-        "periodo2.inicio": {
-          "type": "date"
-        },
-        "periodo2.fim": {
-          "type": "date"
         }
       }
     }
