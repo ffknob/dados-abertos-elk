@@ -1,18 +1,100 @@
-[
-  {
-    "_id": "85bc5880-a550-11e8-8205-6ba4039dc1e9",
-    "_type": "dashboard",
-    "_source": {
-      "title": "TCE-RS / Diárias pagas",
-      "hits": 0,
-      "description": "",
-      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":15,\"h\":10,\"i\":\"1\"},\"embeddableConfig\":{},\"id\":\"fb396e70-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":15,\"y\":0,\"w\":33,\"h\":10,\"i\":\"2\"},\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"id\":\"f1faeac0-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":26,\"i\":\"3\"},\"embeddableConfig\":{},\"id\":\"7afce180-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":24,\"y\":10,\"w\":24,\"h\":26,\"i\":\"4\"},\"embeddableConfig\":{\"mapCenter\":[-30.225848323247707,-52.77832031250001],\"mapZoom\":7},\"id\":\"d68b7a50-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"}]",
-      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+{
+  "version": "6.5.0",
+  "objects": [
+    {
+      "id": "fb396e70-a54d-11e8-8205-6ba4039dc1e9",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:38:08.992Z",
+      "version": 2,
+      "attributes": {
+        "title": "TCE-RS / Diárias pagas / Total (R$)",
+        "visState": "{\n  \"title\": \"Diárias / Total (R$)\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"addLegend\": false,\n    \"type\": \"metric\",\n    \"metric\": {\n      \"percentageMode\": false,\n      \"useRanges\": false,\n      \"colorSchema\": \"Green to Red\",\n      \"metricColorMode\": \"None\",\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 10000\n        }\n      ],\n      \"labels\": {\n        \"show\": true\n      },\n      \"invertColors\": false,\n      \"style\": {\n        \"bgFill\": \"#000\",\n        \"bgColor\": false,\n        \"labelColor\": false,\n        \"subText\": \"\",\n        \"fontSize\": 60\n      }\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"valor\",\n        \"customLabel\": \"Total\"\n      }\n    }\n  ]\n}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"tcers-diarias-pagas\",\n  \"filter\": [],\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"lucene\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "id": "f1faeac0-a550-11e8-8205-6ba4039dc1e9",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:38:16.896Z",
+      "version": 2,
+      "attributes": {
+        "title": "TCE-RS / Diárias pagas / Total (R$) histórico",
+        "visState": "{\n  \"title\": \"TCE-RS / Diárias pagas / Total (R$) histórico\",\n  \"type\": \"histogram\",\n  \"params\": {\n    \"type\": \"histogram\",\n    \"grid\": {\n      \"categoryLines\": true,\n      \"style\": {\n        \"color\": \"#eee\"\n      },\n      \"valueAxis\": \"ValueAxis-1\"\n    },\n    \"categoryAxes\": [\n      {\n        \"id\": \"CategoryAxis-1\",\n        \"type\": \"category\",\n        \"position\": \"bottom\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"truncate\": 100\n        },\n        \"title\": {}\n      }\n    ],\n    \"valueAxes\": [\n      {\n        \"id\": \"ValueAxis-1\",\n        \"name\": \"LeftAxis-1\",\n        \"type\": \"value\",\n        \"position\": \"left\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\",\n          \"mode\": \"normal\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"rotate\": 0,\n          \"filter\": false,\n          \"truncate\": 100\n        },\n        \"title\": {\n          \"text\": \"Total (R$)\"\n        }\n      }\n    ],\n    \"seriesParams\": [\n      {\n        \"show\": \"true\",\n        \"type\": \"histogram\",\n        \"mode\": \"stacked\",\n        \"data\": {\n          \"label\": \"Total (R$)\",\n          \"id\": \"1\"\n        },\n        \"valueAxis\": \"ValueAxis-1\",\n        \"drawLinesBetweenPoints\": true,\n        \"showCircles\": true\n      }\n    ],\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"times\": [],\n    \"addTimeMarker\": true\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"valor\",\n        \"customLabel\": \"Total (R$)\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"date_histogram\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"periodo1.inicio\",\n        \"interval\": \"M\",\n        \"customInterval\": \"2h\",\n        \"min_doc_count\": 1,\n        \"extended_bounds\": {}\n      }\n    }\n  ]\n}",
+        "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": false\n  }\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"tcers-diarias-pagas\",\n  \"filter\": [],\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"lucene\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "id": "7afce180-a550-11e8-8205-6ba4039dc1e9",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:46:29.312Z",
+      "version": 2,
+      "attributes": {
+        "title": "TCE-RS / Diárias pagas / Maiores beneficiários",
+        "visState": "{\n  \"title\": \"TCE-RS / Diárias pagas / Maiores beneficiários\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 15,\n    \"showPartialRows\": false,\n    \"showMeticsAtAllLevels\": false,\n    \"sort\": {\n      \"columnIndex\": null,\n      \"direction\": null\n    },\n    \"showTotal\": false,\n    \"totalFunc\": \"sum\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"valor\",\n        \"customLabel\": \"Total (R$)\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"nome.keyword\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Servidores\"\n      }\n    }\n  ]\n}",
+        "uiStateJSON": "{\n  \"vis\": {\n    \"params\": {\n      \"sort\": {\n        \"columnIndex\": null,\n        \"direction\": null\n      }\n    }\n  }\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"tcers-diarias-pagas\",\n  \"filter\": [],\n  \"query\": {\n    \"language\": \"lucene\",\n    \"query\": \"\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "id": "d68b7a50-a54d-11e8-8205-6ba4039dc1e9",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:38:25.260Z",
+      "version": 2,
+      "attributes": {
+        "title": "TCE-RS / Diárias pagas / Total (R$) por destino",
+        "visState": "{\n  \"title\": \"TCE-RS / Diárias pagas / Total (R$) por destino\",\n  \"type\": \"tile_map\",\n  \"params\": {\n    \"addTooltip\": true,\n    \"heatClusterSize\": 1.5,\n    \"isDesaturated\": true,\n    \"legendPosition\": \"bottomright\",\n    \"mapCenter\": [\n      0,\n      0\n    ],\n    \"mapType\": \"Scaled Circle Markers\",\n    \"mapZoom\": 2,\n    \"wms\": {\n      \"baseLayersAreLoaded\": {},\n      \"enabled\": false,\n      \"options\": {\n        \"format\": \"image/png\",\n        \"transparent\": true\n      },\n      \"selectedTmsLayer\": {\n        \"attribution\": \"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\n        \"id\": \"road_map\",\n        \"maxZoom\": 10,\n        \"minZoom\": 0,\n        \"subdomains\": [],\n        \"url\": \"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.2\"\n      },\n      \"tmsLayers\": [\n        {\n          \"attribution\": \"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\n          \"id\": \"road_map\",\n          \"maxZoom\": 10,\n          \"minZoom\": 0,\n          \"subdomains\": [],\n          \"url\": \"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.2\"\n        }\n      ]\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"valor\",\n        \"customLabel\": \"Total\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"geohash_grid\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"destino.localizacao\",\n        \"autoPrecision\": true,\n        \"isFilteredByCollar\": true,\n        \"useGeocentroid\": true,\n        \"precision\": 4,\n        \"customLabel\": \"Destino\"\n      }\n    }\n  ]\n}",
+        "uiStateJSON": "{\n  \"mapCenter\": [\n    -31.358327833411312,\n    -51.76208496093751\n  ],\n  \"mapZoom\": 7\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\n  \"index\": \"tcers-diarias-pagas\",\n  \"filter\": [],\n  \"query\": {\n    \"language\": \"lucene\",\n    \"query\": \"\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "id": "tcers-diarias-pagas",
+      "type": "index-pattern",
+      "updated_at": "2018-11-16T16:46:49.198Z",
+      "version": 7,
+      "attributes": {
+        "title": "tcers-diarias-pagas",
+        "fields": "[{\"name\":\"@timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@version\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@version.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"ano\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"cargo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"cargo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"cod_municipio_destino\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"cod_municipio_destino.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"cod_municipio_origem\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"cod_municipio_origem.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.cd_municipio\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.cd_municipio_ibge\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.cd_sedes_tce\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.latitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.localizacao\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.longitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.nome_municipio\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.nome_municipio.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.nome_sede_tce\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.nome_sede_tce.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.sigla_sede_tce\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.sigla_sede_tce.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.uf\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.uf.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"matricula\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"matricula.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"motivo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"motivo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.cd_municipio\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.cd_municipio_ibge\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.cd_sedes_tce\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.latitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.localizacao\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.longitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.nome_municipio\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.nome_municipio.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.nome_sede_tce\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.nome_sede_tce.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.sigla_sede_tce\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.sigla_sede_tce.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.uf\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.uf.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo1.fim\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo1.inicio\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo1.quantidade\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo2.fim\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo2.inicio\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"periodo2.quantidade\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"setor\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"setor.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"valor\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true}]"
+      },
+      "migrationVersion": {
+        "index-pattern": "6.5.0"
+      }
+    },
+    {
+      "id": "85bc5880-a550-11e8-8205-6ba4039dc1e9",
+      "type": "dashboard",
+      "updated_at": "2018-10-19T16:37:31.766Z",
       "version": 1,
-      "timeRestore": false,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      "attributes": {
+        "title": "TCE-RS / Diárias pagas",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":15,\"h\":10,\"i\":\"1\"},\"embeddableConfig\":{},\"id\":\"fb396e70-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":15,\"y\":0,\"w\":33,\"h\":10,\"i\":\"2\"},\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"id\":\"f1faeac0-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":10,\"w\":24,\"h\":26,\"i\":\"3\"},\"embeddableConfig\":{},\"id\":\"7afce180-a550-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":24,\"y\":10,\"w\":24,\"h\":26,\"i\":\"4\"},\"embeddableConfig\":{\"mapCenter\":[-30.225848323247707,-52.77832031250001],\"mapZoom\":7},\"id\":\"d68b7a50-a54d-11e8-8205-6ba4039dc1e9\",\"type\":\"visualization\",\"version\":\"6.3.2\"}]",
+        "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+        }
       }
     }
-  }
-]
+  ]
+}

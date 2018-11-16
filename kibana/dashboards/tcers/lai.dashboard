@@ -1,18 +1,116 @@
-[
-  {
-    "_id": "9b295880-d0bb-11e8-b3f5-d986db915190",
-    "_type": "dashboard",
-    "_source": {
-      "title": "TCE-RS / LAI",
-      "hits": 0,
-      "description": "",
-      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":28,\"y\":14,\"w\":17,\"h\":15,\"i\":\"1\"},\"embeddableConfig\":{},\"id\":\"9d90ff20-d0ba-11e8-b3f5-d986db915190\",\"title\":\"Enquadramento da solicitação\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":14,\"y\":14,\"w\":14,\"h\":15,\"i\":\"2\"},\"embeddableConfig\":{},\"id\":\"ce5101f0-d0ba-11e8-b3f5-d986db915190\",\"title\":\"Idade do solicitante\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":28,\"y\":0,\"w\":17,\"h\":14,\"i\":\"3\"},\"embeddableConfig\":{},\"id\":\"f8c4ed70-d0ba-11e8-b3f5-d986db915190\",\"title\":\"Resultado\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":0,\"y\":0,\"w\":28,\"h\":14,\"i\":\"4\"},\"embeddableConfig\":{},\"id\":\"75d47600-d0bb-11e8-b3f5-d986db915190\",\"title\":\"Histórico de solicitações\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":0,\"y\":14,\"w\":14,\"h\":15,\"i\":\"5\"},\"embeddableConfig\":{},\"id\":\"5ff5aa30-d0ba-11e8-b3f5-d986db915190\",\"title\":\"Tipo de solicitação\",\"type\":\"visualization\",\"version\":\"6.3.2\"}]",
-      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+{
+  "version": "6.5.0",
+  "objects": [
+    {
+      "id": "9d90ff20-d0ba-11e8-b3f5-d986db915190",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:34:45.914Z",
       "version": 1,
-      "timeRestore": false,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      "attributes": {
+        "title": "TCE-RS / LAI / Enquadramento da solicitação",
+        "visState": "{\"title\":\"TCE-RS / LAI / Enquadramento da solicitação\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Total\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"enquadramento.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\"}}]}",
+        "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"tcers-lai\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+        }
+      }
+    },
+    {
+      "id": "ce5101f0-d0ba-11e8-b3f5-d986db915190",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:34:45.926Z",
+      "version": 1,
+      "attributes": {
+        "title": "TCE-RS / LAI / Idade do solicitante",
+        "visState": "{\"title\":\"TCE-RS / LAI / Idade do solicitante\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Total\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"faixa_etaria_solicitante.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+        "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": false\n  }\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"tcers-lai\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+        }
+      }
+    },
+    {
+      "id": "f8c4ed70-d0ba-11e8-b3f5-d986db915190",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:34:45.936Z",
+      "version": 1,
+      "attributes": {
+        "title": "TCE-RS / LAI / Resultado",
+        "visState": "{\"title\":\"TCE-RS / LAI / Resultado\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"resultado.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+        "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": false\n  }\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"tcers-lai\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+        }
+      }
+    },
+    {
+      "id": "75d47600-d0bb-11e8-b3f5-d986db915190",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:34:45.904Z",
+      "version": 1,
+      "attributes": {
+        "title": "TCE-RS / LAI / Histórico de solicitações",
+        "visState": "{\"title\":\"TCE-RS / LAI / Histórico de solicitações\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":true,\"style\":{\"color\":\"#eee\"},\"valueAxis\":\"ValueAxis-1\"},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Total\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Total\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\"}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Total\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"timeRange\":{\"from\":\"now-15m\",\"to\":\"now\",\"mode\":\"quick\"},\"useNormalizedEsInterval\":true,\"interval\":\"M\",\"time_zone\":\"America/Sao_Paulo\",\"drop_partials\":false,\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"tipo.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Tipo\"}}]}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"tcers-lai\",\"filter\":[],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+        }
+      }
+    },
+    {
+      "id": "5ff5aa30-d0ba-11e8-b3f5-d986db915190",
+      "type": "visualization",
+      "updated_at": "2018-11-16T16:34:45.921Z",
+      "version": 1,
+      "attributes": {
+        "title": "TCE-RS / LAI / Tipo de solicitação",
+        "visState": "{\"title\":\"TCE-RS / LAI / Tipo de solicitação\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Tipo de solicitação\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"tipo.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+        "uiStateJSON": "{\n  \"vis\": {\n    \"legendOpen\": false\n  }\n}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"tcers-lai\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+        }
+      }
+    },
+    {
+      "id": "tcers-lai",
+      "type": "index-pattern",
+      "updated_at": "2018-11-16T16:34:27.864Z",
+      "version": 4,
+      "attributes": {
+        "title": "tcers-lai",
+        "fields": "[{\"name\":\"@timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@version\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@version.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"ano\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"dia_semana\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"dia_semana.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"enquadramento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"enquadramento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"faixa_etaria_solicitante\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"faixa_etaria_solicitante.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"resultado\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"resultado.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"tipo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"tipo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"tipo_solicitante\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"tipo_solicitante.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true}]"
+      },
+      "migrationVersion": {
+        "index-pattern": "6.5.0"
+      }
+    },
+    {
+      "id": "9b295880-d0bb-11e8-b3f5-d986db915190",
+      "type": "dashboard",
+      "updated_at": "2018-11-16T16:34:54.780Z",
+      "version": 1,
+      "attributes": {
+        "title": "TCE-RS / LAI",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"h\":15,\"i\":\"1\",\"w\":17,\"x\":28,\"y\":14},\"id\":\"9d90ff20-d0ba-11e8-b3f5-d986db915190\",\"panelIndex\":\"1\",\"title\":\"Enquadramento da solicitação\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":15,\"i\":\"2\",\"w\":14,\"x\":14,\"y\":14},\"id\":\"ce5101f0-d0ba-11e8-b3f5-d986db915190\",\"panelIndex\":\"2\",\"title\":\"Idade do solicitante\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":14,\"i\":\"3\",\"w\":17,\"x\":28,\"y\":0},\"id\":\"f8c4ed70-d0ba-11e8-b3f5-d986db915190\",\"panelIndex\":\"3\",\"title\":\"Resultado\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":14,\"i\":\"4\",\"w\":28,\"x\":0,\"y\":0},\"id\":\"75d47600-d0bb-11e8-b3f5-d986db915190\",\"panelIndex\":\"4\",\"title\":\"Histórico de solicitações\",\"type\":\"visualization\",\"version\":\"6.3.2\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":15,\"i\":\"5\",\"w\":14,\"x\":0,\"y\":14},\"id\":\"5ff5aa30-d0ba-11e8-b3f5-d986db915190\",\"panelIndex\":\"5\",\"title\":\"Tipo de solicitação\",\"type\":\"visualization\",\"version\":\"6.3.2\"}]",
+        "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+        }
       }
     }
-  }
-]
+  ]
+}

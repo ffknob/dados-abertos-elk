@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "136dc8d0-b38e-11e8-b014-55aaf91c0db0",
+    "_type": "dashboard",
+    "_source": {
+      "title": "POA / Acidentes de trânsito",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"2\",\"gridData\":{\"x\":22,\"y\":0,\"w\":24,\"h\":15,\"i\":\"2\"},\"embeddableConfig\":{},\"id\":\"eed9cbe0-b3ba-11e8-9ae0-6ba5967b2337\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":22,\"y\":15,\"w\":16,\"h\":15,\"i\":\"3\"},\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"id\":\"53c84450-b3bb-11e8-9ae0-6ba5967b2337\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":1,\"y\":0,\"w\":21,\"h\":30,\"i\":\"5\"},\"version\":\"6.3.2\",\"type\":\"visualization\",\"id\":\"7fd28e60-b457-11e8-8b5c-69ee78ee1089\",\"embeddableConfig\":{\"mapZoom\":13,\"mapCenter\":[-30.074813339923498,-51.19624614715577]}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  }
+]

@@ -1,5 +1,0 @@
-HTTP/1.1 400 Bad Request
-content-type: application/json; charset=UTF-8
-content-length: 433
-
-{"error":{"root_cause":[{"type":"resource_already_exists_exception","reason":"index [tcers-balancete-despesa/NPBzgrjUTBOqYlzyoD5Mtg] already exists","index_uuid":"NPBzgrjUTBOqYlzyoD5Mtg","index":"tcers-balancete-despesa"}],"type":"resource_already_exists_exception","reason":"index [tcers-balancete-despesa/NPBzgrjUTBOqYlzyoD5Mtg] already exists","index_uuid":"NPBzgrjUTBOqYlzyoD5Mtg","index":"tcers-balancete-despesa"},"status":400}
