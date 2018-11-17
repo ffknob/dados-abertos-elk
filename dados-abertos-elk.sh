@@ -5,6 +5,14 @@ LOGSTASH=$(which logstash)
 ELASTICSEARCH_HOST="localhost:9200"
 KIBANA_HOST="localhost:5601"
 
+# Diretórios
+MAPPINGS_DIR="elasticsearch/mappings/"
+MAPPING_FILE_EXTENSION="mapping"
+PIPELINES_DIR="logstash/pipelines/"
+PIPELINE_FILE_EXTENSION="conf"
+DASHBOARDS_DIR="kibana/dashboards/"
+DASHBOARD_FILE_EXTENSION="dashboard"
+
 # Cores
 NC="$(tput sgr0)"
 OK="$(tput setaf 2)OK${NC}"
@@ -13,10 +21,26 @@ PADDING=55
 
 use() {
 
-	echo "${0} [-m] [-p] [-d] "
-	echo "	-m		mappings dos índices do Elasticsearch"
-	echo "	-p		pipelines do Logstash"
-	echo "	-u		dashboards do Kibana"
+	echo "${0} -e [indice] | -l [pipeline] | -k [dashboard] "
+	echo "	-e		cria os índices no Elasticsearch com os devidos mappings"
+	echo "	-l		executa pipelines do Logstash"
+	echo "	-k		instala dashboards do Kibana"
+
+	echo
+
+	echo "[Elasticsearch] Índices disponíveis:"
+	find ${MAPPINGS_DIR} -name \*.${MAPPING_FILE_EXTENSION} -type f 2> /dev/null | sort | sed 's/^/\t- /' 2> /dev/null
+	echo
+
+	echo "[Logstash] Pipelines disponíveis:"
+	find ${PIPELINES_DIR} -name \*.${PIPELINE_FILE_EXTENSION} -type f 2> /dev/null | sort | sed 's/^/\t- /' 2> /dev/null
+	echo
+
+	echo "[Kibana] Dashboards disponíveis:"
+	find ${DASHBOARDS_DIR} -name \*.${DASHBOARD_FILE_EXTENSION} -type f 2> /dev/null | sort | sed 's/^/\t- /' 2> /dev/null
+	echo
+
+	echo
 
 	exit -1
 }
@@ -24,16 +48,18 @@ use() {
 install_elasticsearch_mappings() {
 	echo "[Instalando mappings do Elasticsearch]"
 
-	DIR="elasticsearch/mappings/"
-	DIR_REPLACE="elasticsearch\/mappings\/"
-	FILE_EXTENSION="mapping"
-	FILES="$(find ${DIR} -name \*.${FILE_EXTENSION} -type f 2> /dev/null | sort)"
+	if [ -z "${1}" ]
+	then
+		FILES="$(find ${MAPPINGS_DIR} -name \*.${MAPPING_FILE_EXTENSION} -type f 2> /dev/null | sort)"
+	else
+		FILES="${1}"
+	fi
 
 	if [ ! -z "${FILES}" ]
 	then
 		for f in ${FILES}
 		do
-			INDEX_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${FILE_EXTENSION}'//g')"
+			INDEX_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${MAPPING_FILE_EXTENSION}'//g')"
 		
 			printf "Instalando mapping do índice %-${PADDING}s" "${INDEX_NAME}..."
 
@@ -58,19 +84,21 @@ install_elasticsearch_mappings() {
 
 run_logstash_pipelines() {
 	echo "[Executando pipelines do Logstash]"
+	echo "IMPORTANTE: Tenha certeza de que os dicionários necessários já foram gerados e se encontram em dict/. "
 
-	DIR="logstash/pipelines/"
-	DIR_REPLACE="logstash\/pipelines\/"
-	FILE_EXTENSION="conf"
-	#FILES="$(find ${DIR} -name \*.${FILE_EXTENSION} -type f 2> /dev/null | sort)"
-	FILES="$(find ${DIR} -name diarias-pagas.${FILE_EXTENSION} -type f 2> /dev/null | grep -v '/dict/' | sort)"
+	if [ -z "${1}" ]
+	then
+		FILES="$(find ${PIPELINES_DIR} -name \*.${PIPELINE_FILE_EXTENSION} -type f 2> /dev/null | grep -v '/dict/' | sort)"
+	else
+		FILES="${1}"
+	fi
 
 	if [ ! -z "${FILES}" ]
 	then
 		for f in ${FILES}
 		do
 			
-			PIPELINE_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${FILE_EXTENSION}'//g')"
+			PIPELINE_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${PIPELINE_FILE_EXTENSION}'//g')"
 			
 			printf "Executando pipeline %-${PADDING}s" "${PIPELINE_NAME}..."
 
@@ -97,17 +125,19 @@ run_logstash_pipelines() {
 install_kibana_dashboards() {
 	echo "[Instalando dashboards do Kibana]"
 
-	DIR="kibana/dashboards/"
-	DIR_REPLACE="kibana\/dashboards\/"
-	FILE_EXTENSION="dashboard"
-	FILES="$(find ${DIR} -name \*.${FILE_EXTENSION} -type f 2> /dev/null | sort)"
+	if [ -z "${1}" ]
+	then
+		FILES="$(find ${DASHBOARDS_DIR} -name \*.${DASHBOARD_FILE_EXTENSION} -type f 2> /dev/null | sort)"
+	else
+		FILES="${1}"
+	fi
 
 	if [ ! -z "${FILES}" ]
 	then
 		for f in ${FILES}
 		do
 			
-			DASHBOARD_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${FILE_EXTENSION}'//g')"
+			DASHBOARD_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${DASHBOARD_FILE_EXTENSION}'//g')"
 			
 			printf "Instalando dashboard %-${PADDING}s" "${DASHBOARD_NAME}..."
 
@@ -135,17 +165,17 @@ then
 	use
 fi
 
-while getopts "mpd" option
+while getopts "elk" option
 do
 	case "${option}" in
-		m)
-			install_elasticsearch_mappings
+		e)
+			install_elasticsearch_mappings ${2}
 			;;
-		p)
-			run_logstash_pipelines
+		l)
+			#run_logstash_pipelines ${2}
 			;;
-		d)
-			install_kibana_dashboards
+		k)
+			#install_kibana_dashboards ${2}
 			;;
 		*)
 			use
