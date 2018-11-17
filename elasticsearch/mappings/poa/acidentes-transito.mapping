@@ -69,8 +69,7 @@
           "type" : "boolean"
         },
         "data_hora" : {
-          "type" : "date",
-          "format" : "strict_date_hour_minute||yyyy-MM-dd HH:mm||yyyyMMdd HH:mm"
+          "type" : "date"
         },
         "dia" : {
           "type" : "text",

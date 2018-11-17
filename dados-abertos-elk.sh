@@ -84,7 +84,9 @@ install_elasticsearch_mappings() {
 
 run_logstash_pipelines() {
 	echo "[Executando pipelines do Logstash]"
-	echo "IMPORTANTE: Tenha certeza de que os dicionários necessários já foram gerados e se encontram em dict/. "
+	echo "IMPORTANTE:"
+	echo "1. Tenha certeza de que os dicionários necessários já foram gerados e se encontram em dict/. "
+	echo "2. O Logstash ficará em execução aguardando mais eventoss nos inputs configurados. Ele deverá ser encerrado manualmente (CTRL+C) assim que o respectivo índice no Elasticsearch não estiver recebendo mais eventos, ou que o indicador do filtro de saída dots {} não estiver mais imprimindo pontos na tela."
 
 	if [ -z "${1}" ]
 	then
@@ -100,19 +102,10 @@ run_logstash_pipelines() {
 			
 			PIPELINE_NAME="$(echo ${f} | cut -d'/' -f3- | sed 's/\//-/g' | sed 's/.'${PIPELINE_FILE_EXTENSION}'//g')"
 			
-			printf "Executando pipeline %-${PADDING}s" "${PIPELINE_NAME}..."
+			echo "Executando pipeline ${PIPELINE_NAME}..."
 
-			echo "${LOGSTASH} -f ${f} 2>&1 > /dev/null"
-			${LOGSTASH} -f ${f} 2>&1 > /dev/null
+			${LOGSTASH} -f ${f}
 	
-			if [ $? -ne 0 ]
-			then
-				printf "${NOK}\n"
-				RETURN=-1
-			else
-				printf "${OK}\n"
-				RETURN=0
-			fi
 		done
 	else
 		echo "Não foram encontrados arquivos de pipeline"
@@ -172,10 +165,10 @@ do
 			install_elasticsearch_mappings ${2}
 			;;
 		l)
-			#run_logstash_pipelines ${2}
+			run_logstash_pipelines ${2}
 			;;
 		k)
-			#install_kibana_dashboards ${2}
+			install_kibana_dashboards ${2}
 			;;
 		*)
 			use
