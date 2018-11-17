@@ -140,3 +140,14 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 - Grupo no Telegram: Elastic Fantastics Brasil
 - [Elastic Forums](https://discuss.elastic.com)
 - [Grok patterns](https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns)
+
+## Utilidades
+
+- Criar index pattern no Kibana:
+`$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/saved_objects/index-pattern/poa-acidentes-transito -d'{"attributes":{"title": "poa-acidentes-transito","timeFieldName": "@timestamp"}}'`
+
+- Exportar dashboard do Kibana (index pattern + visualizations + dashboard):
+`$ curl -k -XGET http://localhost:5601/api/kibana/dashboards/export\?dashboard\=ce92e510-ea65-11e8-8fb3-31b5d3f2749f > acidentes-transito.dashboard`
+
+- Importar dashboard no Kibana:
+`$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/kibana/dashboards/import -d @acidentes-transito.dashboard`
