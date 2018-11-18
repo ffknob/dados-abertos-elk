@@ -17,7 +17,7 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
 * [Utilidades](#utilidades)
 * [Links úteis](#links-úteis)
 
-## Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)
+## Roteiro utilizando a ferramenta _dados-abertos-elk.sh_
 
 1. Baixar os conjuntos de dados abertos desejados nas [Fontes de Dados Abertos](#fontes-de-dados-abertos)
 1. Instalar, executar e testar o _Elasticsearch_, _Kibana_ e _Logstash_
