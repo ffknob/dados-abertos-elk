@@ -1,23 +1,82 @@
 # Dados Abertos com Elastic Stack (ELK)
 
-Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados abertos, fazendo uso da stack _ELK_ (_Elasticsearch + Logstash + Kibana_), que é uma solução baseada em software livre que permite facilmente consumir fontes de dados, manipular/transformar/enriquecer esses dados, indexá-los e, por fim, visualizá-los em dashboards. 
+Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados abertos, fazendo uso da _Elastic Stack_ (_Elasticsearch + Logstash + Kibana_), que é uma solução baseada em software livre que permite facilmente consumir fontes de dados, manipular/transformar/enriquecer esses dados, indexá-los e, por fim, visualizá-los em dashboards.
 
-_TL;DR_
+> Neste projeto está sendo utilizada a versão **6.5.0** da _Elastic Stack_.
 
-1. Baixar os conjuntos de dados abertos desejados
-1. Instalar o _Elasticsearch_, _Kibana_ e _Logstash_
-1. Executar o _Elasticsearch_ ([http://localhost:9200/](http://localhost:9200)) e _Kibana_ ([http://localhost:5601/](http://localhost:5601/))
-1. _Opcional_: Executar no _Logstash_ os pipelines para os dicionários
-1. Executar no _Logstash_ os pipelines para os conjuntos de dados abertos desejados
-1. Configurar no _Kibana_ os Index Patterns dos conjuntos de dados desejados
-1. Instalar no _Kibana_ as Visualizations dos conjuntos de dados desejados
-1. Instalar no _Kibana_ os Dashboards dos conjuntos de dados desejados
+## Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)
+
+1. Baixar os conjuntos de dados abertos desejados nas [Fontes de Dados Abertos](#fontes-de-dados-abertos)
+1. Instalar, executar e testar o _Elasticsearch_, _Kibana_ e _Logstash_
+
+```
+$ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.0.tar.gz
+$ tar xfz elasticsearch-6.5.0.tar.gz
+$ elasticsearch-6.5.0/bin/elasticsearch
+$ curl http://localhost:9200
+
+$ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.5.0-linux-x86_64.tar.gz
+$ tar xfz kibana-6.5.0.tar.gz
+$ kibana-6.5.0/bin/kibana
+$ curl http://localhost:5601/
+
+$ curl -O https://artifacts.elastic.co/downloads/logstash/logstash-6.5.0.tar.gz
+$ tar xfz logstash-6.5.0.tar.gz
+$ logstash-6.5.0/bin/logstash --version
+```
+
+3. Clonar este projeto
+
+```
+$ git clone https://github.com/ffknob/dados-abertos-elk.git
+```
+
+4. Criar os índices no _Elasticsearch_ a partir dos arquivos que se encontram no diretório _elasticsearch/mappings/_
+
+```
+dados-abertos-elk/ $ ./dados-abertos-elk.sh -e
+```
+
+5. Criar os _Dashboards_ no _Kibana_ a partir dos arquivos que se encontram no diretório _kibana/dashboards/_
+
+```
+dados-abertos-elk/ $ ./dados-abertos-elk.sh -k
+```
+> Esses arquivos foram gerados a partir da API de exportação de _Dshboards_ do _Kibana_ e já incluem o _Index Pattern_, as _Visualizations_ e o _Dashboard_ propriamente dito.
+
+6. _Opcional_: Executar _Pipelines_ para os dicionários no _Logstash_
+
+```
+dados-abertos-elk/ $ ./dados-abertos-elk.sh -l logstash/pipelines/tcers/dict/municipios.conf
+```
+> Já foram executados e se encontram na pasta _dict/_.
+
+> Esses _Pipelines_ geram arquivos YAML que serão utilizados pelos _Pipelines_ principais.
+
+7. Executar _Pipelines_ no _Logstash_
+
+```
+dados-abertos-elk/ $ ./dados-abertos-elk.sh -l logstash/pipelines/poa/acidentes-transito.conf
+```
+> O Logstash ficará em execução aguardando mais eventos nos inputs configurados. Ele deverá ser encerrado manualmente (CTRL+C) assim que o respectivo índice no Elasticsearch não estiver recebendo mais eventos, ou que o indicador do filtro de saída dots {} não estiver mais imprimindo pontos na tela.
+
+8. Acessar o _Kibana_ e ir em _Dashboards_
+
+## Estrutura de diretórios
+
+> Consultar a [estrutura completa de arquivos e diretórios](#estrutura-de-arquivos-e-diretórios-do-projeto)
+
+* _data/_: diretório para armazenar os arquivos _CSV_ dos conjuntos de dados, organizado por fonte de origem, tipo e, quando necesário, formato
+* _dict/_: diretório com os dicionários que serão utilziados pelos _Pipelines_ principais
+* _elasticsearch/mappings/_: arquivos de _Mapping_ dos índices que serão criados no _Elasticsearch_
+* _kibana/dashboards/_: arquivos de configuração dos _Dashboards_ do _Kibana_, organizado por fonte de origem e tipo
+* _logstash/pipelines/_: arquivos de configuração dos _Pipelines_ do _Logstash_, organizado por fonte de origem e tipo
 
 ## Conjuntos de dados
 
-O primeiro passo é realizar o download dos conjuntos de dados. Eles poderão ser obtidos nos portais de dados abertos dos órgãos. Os arquivos deverão ser salvos nas respectivas pastas, conforme indicado na tabela _Fontes de dados abertos_. 
+O primeiro passo é realizar o download dos conjuntos de dados. Eles poderão ser obtidos nos portais de dados abertos dos órgãos. Os arquivos deverão ser salvos nas respectivas pastas, conforme indicado na tabela _Fontes de dados abertos_.
 
-## Dicionários 
+## Dicionários
 
 Os dicionários são utilizados para enriquecer os conjuntos de dados. Cada dicionário é indexado por uma chave simples, que será utilizada por pipelines do _Logstash_ para encontrar o registro que enriquecerá o evento do conjunto de dados.
 
@@ -31,22 +90,12 @@ Os dicionários que serão utilizados para enriquecer os conjuntos de dados pode
 
 ### Elasticsearch
 
-O _Elasticsearch_ é o componente central da stack _ELK_ e é responsável por indexar os dados e fornecer uma API REST para a realização de consultas. 
+O _Elasticsearch_ é o componente central da stack _ELK_ e é responsável por indexar os dados e fornecer uma API REST para a realização de consultas.
 
 #### Instalação e execução
 
 1. [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
 1. `${ELASTICSEARCH_BASE}/bin/elasticsearch`
-
-#### Mappings
-
-O _Elasticsearch_ é capaz de identificar dinamicamente os tipos de dados enviados para a API e indexação, porém, em alguns casos é necessário informar explicitamente, durante a criação do índice, o tipo de dados do campo. Isso é necessário especialmente para campos do tipo _geopoint_ (nos quais a latitude e longitude são informadas separadas por uma vírgula).
-
-O mapeamento deve ser realizado antes da execução do pipeline do _Logstash_, pois uma ves criado o índice, o mapeamento do tipo de dado do campo não poderá ser alterado. Para realizar o mapeamento siga os seguintes passos:
-
-1. Acesse o [DevTools no Console do Kibana](http://localhost:5601/app/kibana#/dev_tools/console?_g=())
-1. Copie o conteúdo do arquivo de mapeamento do conjunto de dados desejado e cole no console
-1. Os arquivos são formados por dois comandos: o primeiro irá excluir o índice (caso exista) e o segundo ira criá-lo, já com os mapeamentos de campos necessários
 
 ### Logstash
 
@@ -77,43 +126,25 @@ Os _Index Patterns_ devem ser configurados no _Kibana_ para definir quais índic
 1. Acesse o menu [Management do Kibana](http://localhost:5601/app/kibana#/management?_g=())
 1. Vá em _Indexes Patterns_
 1. _Create Index Pattern_
-1. Informe o padrão de índices do conjunto de dados desejado (listados a seguir)
+1. Informe o padrão de índices do conjunto de dados desejado
 1. Informe o campo _@timestamp_ para ser utilizado como marcador da data do evento
 
 #### Visualizations
 
-As Visualizations possibilitam a visualização dos dados indexados através de componentes visuais como histogramas, gráficos de diversos tipos, mapas, _heatmaps_, nuvens de tags, _gauges_ e outros.
+As _Visualizations_ possibilitam a visualização dos dados indexados através de componentes visuais como histogramas, gráficos de diversos tipos, mapas, _heatmaps_, nuvens de tags, _gauges_ e outros.
 
 #### Dashboards
 
-Dashboards reunem Visualizations possibilitando a criação de painéis de informação.
+_Dashboards_ reunem _Visualizations_ possibilitando a criação de painéis de informação.
 
 ---
-
-### Dicionários
-
-| Ordem | Nome | Pipeline | Dicionário gerado|
-| --- | --- | --- | --- |
-| 1 | Municípios | _pipeline/auxiliares/dict/municipios.conf_ | _dict/auxiliares/municipios.yml_ | 
-| 2 | TCE-RS: Municípios | _pipeline/tcers/dict/municipios.conf_ | _dict/tcers/municipios.yml_ |
-| 3 | TCE-RS: Funções contábeis | _pipeline/tcers/dict/funcoes.conf_ | _dict/tcers/funcoes.yml_ |
-| 4 | TCE-RS: Subfunções contábeis | _pipeline/tcers/dict/subfuncoes.conf_ | _dict/tcers/subfuncoes.yml_ |
-| 5 | TCE-RS: Órgãos auditados | _pipeline/tcers/dict/orgaos_auditados.conf_ | _dict/tcers/orgaos-auditados.yml_ |
-
-### Painéis
-
-| Painel | Mappings | Índices | Index Patterns | Visualizations | Dashboards |
-| --- | --- | --- | --- | --- | --- |
-| TCE-RS / Contábil | _mappings/tcers/balancete-despesa.mapping_, _mappings/tcers/balancete-receita.mapping_ | tcers-balancete-despesa, tcers-balancete-receita | tcers-balancete-despesa,tcers-balancete-receita | contabil.visualizations | contabil.dashboard |
-| TCE-RS / LAI |  | tcers-lai | tcers-lai | lai.visualizations | lai.dashboard |
-| TCE-RS / Diárias pagas | _mappings/tcers/diarias-pagas.mapping_ | tcers-diarias-pagas | tcers-diarias-pagas | diarias-pagas.visualizations | diarias-pagas.dashboard |
-| TCE-RS / Decisões |  | tcers-decisoes | tcers-decisoes | decisoes.visualizations | decisoes.dashboard |
-
 
 ### Fontes de dados abertos
 
 | Fonte | Conjunto de dados | Path | Download |
 | --- | --- | --- | --- |
+| POA | Acidentes de Trânsito | _data/poa/acidentes-transito/_ | [http://http://www.datapoa.com.br/dataset/acidentes-de-transito/](http://http://www.datapoa.com.br/dataset/acidentes-de-transito/) |
+| | | | |
 | TCE-RS | Dados auxiliares: Funções | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/funcoes.csv) |
 | TCE-RS | Dados auxiliares: Sub-funções  | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv](http://dados.tce.rs.gov.br/dados/auxiliar/subfuncoes.csv) |
 | TCE-RS | Dados auxiliares: Tipos de unidades | _data/tcers/auxiliares/_ | [http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv](http://dados.tce.rs.gov.br/dados/auxiliar/tipos_unidades.csv) |
@@ -127,27 +158,182 @@ Dashboards reunem Visualizations possibilitando a criação de painéis de infor
 | TCE-RS | Diárias pagas | _data/tcers/diarias-pagas/_ | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) |
 | TCE-RS | Decisões | _data/tcers/decisoes/_ | [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/) |
 
+# Utilidades
+
+## Ferramenta _dados-abertos-elk.sh_
+
+Ferramenta utilitária criada para facilitar a utilização deste projeto. Através dela é possível:
+
+1. **[TODO]** Realizar o download dos conjuntos de dados abertos
+1. Criar os índices no _Elasticsearch_, já com o _mapping_ necessário
+1. Criar os _dashboards_ no _Kibana_
+1. Executar _pipelines_ do _Logstash_
+
+## API _Elasticsearch_
+
+- Verificar índices existentes
+```
+$ curl -XGET http://localhost:9200/_cat/indices?pretty
+```
+
+- Verificar _mapping_ de um índices
+```
+$ curl -XGET http://localhost:9200/poa-acidentes-transito/_mappings?pretty
+```
+
+- Criar um índice
+```
+$ curl -XPUT -H "Content-Type: application/json" http://localhost:9200/poa-acidentes-transito -d@elasticsearch/mappings/poa/acidentes-transito.mapping
+```
+
+- Excluir um índice
+```
+$ curl -XDELETE http://localhost:9200/poa-acidentes-transito/
+```
+
+- Pesquisar em um índice
+```
+$ curl -XGET http://localhost:9200/poa-acidentes-transito/_search?pretty
+$ curl -XGET http://localhost:9200/poa-acidentes-transito/_search\?q\=CAVALHADA\&pretty
+```
+>  Para uma pesquisa específica deverá ser enviado no _body_ uma _query_ no padrão _QSL_ do _Elasticsearch_ (consultar documentação).
+
+
+# API _Kibana_
+
+- Criar _Index Pattern_ no Kibana:
+```
+$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/saved_objects/index-pattern/poa-acidentes-transito -d'{"attributes":{"title": "poa-acidentes-transito","timeFieldName": "@timestamp"}}'
+```
+
+- Exportar _Dashboard_ do Kibana (_Index Pattern_ + _Visualizations_ + _Dashboard_):
+```
+$ curl -k -XGET http://localhost:5601/api/kibana/dashboards/export\?dashboard\=ce92e510-ea65-11e8-8fb3-31b5d3f2749f > acidentes-transito.dashboard
+```
+> O identificador do _Dashboard_ pode ser obtido na _query_string_ da URL ao entrar no _Dashboard_ através do console do _Kibana_.
+
+- Importar _Dashboard_ no Kibana:
+```
+$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/kibana/dashboards/import -d @acidentes-transito.dashboard
+```
+## Estrutura de arquivos e diretórios do projeto
+```
+.
+├── data/
+│   ├── auxiliares/
+│   │   └── municipios.csv
+│   ├── poa/
+│   │   └── acidentes-transito/
+│   │       ├── f1/
+│   │       │   ├── acidentes-2010.csv
+│   │       │   ├── acidentes-2011.csv
+│   │       │   └── acidentes-2012.csv
+│   │       ├── f2/
+│   │       │   └── acidentes-2013.csv
+│   │       ├── f3/
+│   │       │   └── acidentes-2014.csv
+│   │       ├── f4/
+│   │       │   └── acidentes-2015.csv
+│   │       └── f5/
+│   │           └── acidentes-2016.csv
+│   └── tcers/
+│       ├── auxiliares/
+│       │   ├── elementos_de_despesa.csv
+│       │   ├── funcoes.csv
+│       │   ├── grupos_natureza.csv
+│       │   ├── limites_gastos.csv
+│       │   ├── municipios.csv
+│       │   ├── orgaos_auditados_rs.csv
+│       │   ├── subfuncoes.csv
+│       │   └── tipos_unidades.csv
+│       ├── balancete-despesa/
+│       │   └── 2017.csv
+│       ├── balancete-receita/
+│       │   └── 2017.csv
+│       ├── decisoes/
+│       │   ├── 2011.csv
+│       │   ├── 2012.csv
+│       │   ├── 2013.csv
+│       │   ├── 2014.csv
+│       │   ├── 2015.csv
+│       │   ├── 2016.csv
+│       │   └── 2017.csv
+│       ├── diarias-pagas/
+│       │   ├── 2008.csv
+│       │   ├── 2009.csv
+│       │   ├── 2010.csv
+│       │   ├── 2011.csv
+│       │   ├── 2012.csv
+│       │   ├── 2013.csv
+│       │   ├── 2014.csv
+│       │   ├── 2015.csv
+│       │   ├── 2016.csv
+│       │   └── 2017.csv
+│       └── lai/
+│           ├── 2012.csv
+│           ├── 2013.csv
+│           ├── 2014.csv
+│           ├── 2015.csv
+│           ├── 2016.csv
+│           └── 2017.csv
+├── dict/
+│   ├── auxiliares/
+│   │   └── municipios.yml
+│   └── tcers/
+│       ├── funcoes.yml
+│       ├── municipios.yml
+│       ├── orgaos-auditados.yml
+│       └── subfuncoes.yml
+├── elasticsearch/
+│   └── mappings/
+│       ├── poa/
+│       │   └── acidentes-transito.mapping
+│       └── tcers/
+│           ├── balancete-despesa.mapping
+│           ├── balancete-receita.mapping
+│           ├── decisoes.mapping
+│           ├── diarias-pagas.mapping
+│           └── lai.mapping
+├── kibana/
+│   └── dashboards/
+│       ├── poa/
+│       │   └── acidentes-transito.dashboard
+│       └── tcers/
+│           ├── contabil.dashboard
+│           ├── diarias-pagas.dashboard
+│           └── lai.dashboard
+├── logstash/
+│   └── pipelines/
+│       ├── auxiliares/
+│       │   └── dict/
+│       │       └── municipios.conf
+│       ├── poa/
+│       │   └── acidentes-transito.conf
+│       └── tcers/
+│           ├── dict/
+│           │   ├── funcoes.conf
+│           │   ├── municipios.conf
+│           │   ├── orgaos-auditados.conf
+│           │   └── subfuncoes.conf
+│           ├── balancete-despesa.conf
+│           ├── balancete-receita.conf
+│           ├── decisoes.conf
+│           ├── diarias-pagas.conf
+│           └── lai.conf
+├── dados-abertos-elk.sh*
+└── README.md
+```
+
 # Links úteis
 
-## Fontes de dados abertos
+## Portais de dados abertos
 
 - [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
 - [Portal de Dados Abertos do Governo do Estado do RS](https://dados.rs.gov.br)
 - [#Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre](http://www.datapoa.com.br/)
- 
+
 ## Elastic Stack
 
-- Grupo no Telegram: Elastic Fantastics Brasil
+- [Telegram: Elastic Fantastics Brasil](https://web.telegram.org/#/im?p=@ElasticFantasticsBR)
 - [Elastic Forums](https://discuss.elastic.com)
 - [Grok patterns](https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns)
-
-## Utilidades
-
-- Criar index pattern no Kibana:
-`$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/saved_objects/index-pattern/poa-acidentes-transito -d'{"attributes":{"title": "poa-acidentes-transito","timeFieldName": "@timestamp"}}'`
-
-- Exportar dashboard do Kibana (index pattern + visualizations + dashboard):
-`$ curl -k -XGET http://localhost:5601/api/kibana/dashboards/export\?dashboard\=ce92e510-ea65-11e8-8fb3-31b5d3f2749f > acidentes-transito.dashboard`
-
-- Importar dashboard no Kibana:
-`$ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://localhost:5601/api/kibana/dashboards/import -d @acidentes-transito.dashboard`

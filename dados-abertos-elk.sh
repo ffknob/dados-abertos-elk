@@ -21,9 +21,9 @@ PADDING=55
 
 use() {
 
-	echo "${0} -e [indice] | -l [pipeline] | -k [dashboard] "
+	echo "${0} -e [indice] | -l <pipeline> | -k [dashboard] "
 	echo "	-e		cria os índices no Elasticsearch com os devidos mappings"
-	echo "	-l		executa pipelines do Logstash"
+	echo "	-l		executa pipeline do Logstash"
 	echo "	-k		instala dashboards do Kibana"
 
 	echo
@@ -86,7 +86,7 @@ run_logstash_pipelines() {
 	echo "[Executando pipelines do Logstash]"
 	echo "IMPORTANTE:"
 	echo "1. Tenha certeza de que os dicionários necessários já foram gerados e se encontram em dict/. "
-	echo "2. O Logstash ficará em execução aguardando mais eventoss nos inputs configurados. Ele deverá ser encerrado manualmente (CTRL+C) assim que o respectivo índice no Elasticsearch não estiver recebendo mais eventos, ou que o indicador do filtro de saída dots {} não estiver mais imprimindo pontos na tela."
+	echo "2. O Logstash ficará em execução aguardando mais eventos nos inputs configurados. Ele deverá ser encerrado manualmente (CTRL+C) assim que o respectivo índice no Elasticsearch não estiver recebendo mais eventos, ou que o indicador do filtro de saída dots {} não estiver mais imprimindo pontos na tela."
 
 	if [ -z "${1}" ]
 	then
@@ -165,7 +165,13 @@ do
 			install_elasticsearch_mappings ${2}
 			;;
 		l)
-			run_logstash_pipelines ${2}
+			if [ -z "${2}" ]
+			then
+				echo "Arquivo de pipeline deve ser informado"
+				exit -1
+			else
+				run_logstash_pipelines ${2}
+			fi
 			;;
 		k)
 			install_kibana_dashboards ${2}
