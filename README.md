@@ -4,6 +4,18 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
 
 > Neste projeto está sendo utilizada a versão **6.5.0** da _Elastic Stack_.
 
+
+* [Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_](#roteiro-(utilizando-a-ferramenta-_dados-abertos-elk.sh_)
+* [Estrutura de diretórios](#estrutura-de-diretórios)
+* [Conjuntos de dados](#conjuntos-de-dados)
+* [Dicionários](#dicionários)
+* [Elastic Stack (ELK)](#elastic-stack-elk)
+  * [Elasticsearch](#Elasticsearch)
+  * [Logstash](#logstash)
+  * [Kibana](#kibana)
+* [Utilidades](#utilidades)
+* [Links úteis](#links-úteis)
+
 ## Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)
 
 1. Baixar os conjuntos de dados abertos desejados nas [Fontes de Dados Abertos](#fontes-de-dados-abertos)
@@ -169,6 +181,13 @@ Ferramenta utilitária criada para facilitar a utilização deste projeto. Atrav
 1. Criar os _dashboards_ no _Kibana_
 1. Executar _pipelines_ do _Logstash_
 
+```
+dados-abertos-elk/ $ ./dados-abertos-elk.sh -e [indice] | -l <pipeline> | -k [dashboard]
+	-e		cria os índices no Elasticsearch com os devidos mappings
+	-l		executa pipeline do Logstash
+	-k		instala dashboards do Kibana
+```
+
 ## API _Elasticsearch_
 
 - Verificar índices existentes
@@ -196,7 +215,7 @@ $ curl -XDELETE http://localhost:9200/poa-acidentes-transito/
 $ curl -XGET http://localhost:9200/poa-acidentes-transito/_search?pretty
 $ curl -XGET http://localhost:9200/poa-acidentes-transito/_search\?q\=CAVALHADA\&pretty
 ```
->  Para uma pesquisa específica deverá ser enviado no _body_ uma _query_ no padrão _QSL_ do _Elasticsearch_ (consultar documentação).
+>  Para uma pesquisa específica deverá ser enviado no _body_ uma _query_ no padrão [_Query DSL_](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) do _Elasticsearch_ (consultar documentação).
 
 
 # API _Kibana_
@@ -336,4 +355,5 @@ $ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://loc
 
 - [Telegram: Elastic Fantastics Brasil](https://web.telegram.org/#/im?p=@ElasticFantasticsBR)
 - [Elastic Forums](https://discuss.elastic.com)
-- [Grok patterns](https://github.com/logstash-plugins//logstash-patterns-core/blob/master/patterns/grok-patterns)
+- [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
+- [Grok patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns)
