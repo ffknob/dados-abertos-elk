@@ -5,7 +5,7 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
 > Neste projeto está sendo utilizada a versão **6.5.0** da _Elastic Stack_.
 
 
-* [Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)](#roteiro-utilizando-a-ferramenta-_dados-abertos-elk.sh_)
+* [Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)](#roteiro-utilizando-a-ferramenta-dados-abertos-elk.sh)
 * [Estrutura de diretórios](#estrutura-de-diretórios)
 * [Conjuntos de dados](#conjuntos-de-dados)
 * [Dicionários](#dicionários)
