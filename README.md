@@ -5,7 +5,7 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
 > Neste projeto está sendo utilizada a versão **6.5.0** da _Elastic Stack_.
 
 
-* [Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_](#roteiro-(utilizando-a-ferramenta-_dados-abertos-elk.sh_)
+* [Roteiro (utilizando a ferramenta _dados-abertos-elk.sh_)](#roteiro-utilizando-a-ferramenta-dados-abertos-elk.sh)
 * [Estrutura de diretórios](#estrutura-de-diretórios)
 * [Conjuntos de dados](#conjuntos-de-dados)
 * [Dicionários](#dicionários)
@@ -13,6 +13,7 @@ Este projeto tem o objetivo de facilitar a utilização de conjuntos de dados ab
   * [Elasticsearch](#Elasticsearch)
   * [Logstash](#logstash)
   * [Kibana](#kibana)
+* [Fontes de dados abertos](#fontes-de-dados-abertos)
 * [Utilidades](#utilidades)
 * [Links úteis](#links-úteis)
 
@@ -151,7 +152,7 @@ _Dashboards_ reunem _Visualizations_ possibilitando a criação de painéis de i
 
 ---
 
-### Fontes de dados abertos
+## Fontes de dados abertos
 
 | Fonte | Conjunto de dados | Path | Download |
 | --- | --- | --- | --- |
@@ -170,9 +171,9 @@ _Dashboards_ reunem _Visualizations_ possibilitando a criação de painéis de i
 | TCE-RS | Diárias pagas | _data/tcers/diarias-pagas/_ | [http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/](http://dados.tce.rs.gov.br/dados/institucional/diarias-pagas/) |
 | TCE-RS | Decisões | _data/tcers/decisoes/_ | [http://dados.tce.rs.gov.br/dados/decisoes/](http://dados.tce.rs.gov.br/dados/decisoes/) |
 
-# Utilidades
+## Utilidades
 
-## Ferramenta _dados-abertos-elk.sh_
+### Ferramenta _dados-abertos-elk.sh_
 
 Ferramenta utilitária criada para facilitar a utilização deste projeto. Através dela é possível:
 
@@ -188,7 +189,7 @@ dados-abertos-elk/ $ ./dados-abertos-elk.sh -e [indice] | -l <pipeline> | -k [da
 	-k		instala dashboards do Kibana
 ```
 
-## API _Elasticsearch_
+### API _Elasticsearch_
 
 - Verificar índices existentes
 ```
@@ -218,7 +219,7 @@ $ curl -XGET http://localhost:9200/poa-acidentes-transito/_search\?q\=CAVALHADA\
 >  Para uma pesquisa específica deverá ser enviado no _body_ uma _query_ no padrão [_Query DSL_](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) do _Elasticsearch_ (consultar documentação).
 
 
-# API _Kibana_
+### API _Kibana_
 
 - Criar _Index Pattern_ no Kibana:
 ```
@@ -343,15 +344,15 @@ $ curl -XPOST -H "Content-Type: application/json" -H "kbn-xsrf: true" http://loc
 └── README.md
 ```
 
-# Links úteis
+## Links úteis
 
-## Portais de dados abertos
+### Portais de dados abertos
 
 - [Portal de Dados Abertos do TCE-RS](https://dados.tce.rs.gov.br)
 - [Portal de Dados Abertos do Governo do Estado do RS](https://dados.rs.gov.br)
 - [#Datapoa - Portal de Dados Abertos da Prefeitura de Porto Alegre](http://www.datapoa.com.br/)
 
-## Elastic Stack
+### Elastic Stack
 
 - [Telegram: Elastic Fantastics Brasil](https://web.telegram.org/#/im?p=@ElasticFantasticsBR)
 - [Elastic Forums](https://discuss.elastic.com)
